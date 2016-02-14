@@ -15,6 +15,7 @@ TIMEZONE = 'Europe/Paris'
 DEFAULT_LANG = u'en'
 
 # Feed generation is usually not desired when developing
+FEED_DOMAIN = SITEURL
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
@@ -46,6 +47,13 @@ EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 
 # Generate those pages
 DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search'))
+
+# Structure and permalinks
+ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{slug}.html'
+ARTICLE_SAVE_AS = 'posts/{date:%Y}/{date:%m}/{slug}.html'
+
+# I'm the only author, thanks
+AUTHOR_SAVE_AS = ''
 
 DEFAULT_PAGINATION = 5
 
