@@ -6,7 +6,7 @@ AUTHOR = u'Damien Ciabrini'
 AUTHORS = [u'Damien Ciabrini']
 SITENAME = u"(blog-dump 'dciabrin)"
 SITESUBTITLE = u"A coding and hacking diary"
-SITEURL = 'http://damien.ciabrini.name/blog'
+SITEURL = 'http://damien.ciabrini.name'
 
 PATH = 'content'
 
@@ -39,6 +39,10 @@ SOCIAL = (('twitter', 'http://twitter.com/dciabrin'),
           ('google-plus', 'https://plus.google.com/+DamienCiabrini'),
           ('linkedin', 'https://www.linkedin.com/in/damien-ciabrini-70514187'),
           )
+
+# Static data
+STATIC_PATHS = ['extra/CNAME']
+EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 
 # Generate those pages
 DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search'))
