@@ -1,0 +1,31 @@
+<aside class="side_navigation">
+  <h3 class="nav_author">{{ AUTHOR }}</h3>
+
+  <p>Coder, hacker, dreamer. Worked on compilers,
+    debuggers, language runtimes. Passionate
+    about distributed computing. Obsessed by
+    retro hardware and optimizations.
+    <div class="center dbg">
+        {% for name, link in SOCIAL %}
+        <a class="social fa fa-{{ name }}" href="{{ link }}"></a>
+        <span class="sep"></span>
+        {% endfor %}
+    </div>
+  </p>
+    
+  <h3>Meta</h3>
+  <div class="center">
+  <ul>
+      <li><a href="{{ SITEURL }}/{{ FEED }}" type="application/atom+xml" rel="alternate" title="ATOM Feed" />Blog Feed <i class="fa fa-rss"></i></a></li>
+  </ul>
+  </div>
+  
+  <h3>Categories</h3>
+  <div class="center">
+  <ul>
+    {% for cat, articles in categories %}
+        <li><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a> ({{ articles|count }})</li>
+    {% endfor %}
+  </ul>
+  </div>
+</aside>

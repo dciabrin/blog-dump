@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} &mdash; {{ article.title|striptags }}{% endblock %}
+
+{% block content %}
+    <main class="article">
+        <section class="post type-post status-publish format-standard hentry category-general" id="post">
+	    <div class="main content-inner">
+	        <!-- <div class="post-header"> -->
+		<h1 class="post-title">
+		    <a href="{{ SITEURL }}/{{ article.url }}" title="Permalink to {{ article.title|striptags }}" rel="bookmark">{{ article.title }}</a>
+		</h1>
+		<div class="center post-meta"><span>{{ article.author }}</span></div>
+                <div class="center post-meta">
+                    <i class="fa fa-calendar"></i> <a href="{{ SITEURL }}/{{ article.url }}">{{ article.locale_date }}</a>
+	            {% if article.tags %}
+                        <span class="sep"></span>
+    	                <span class="tag-links"><i class="fa fa-tags"></i>
+    		            {% set delimiter = joiner() %}
+    		            {% for tag in article.tags|sort %}{{- delimiter() }} <a href="{{ SITEURL }}/{{ tag.url }}" rel="tag">{{ tag }}</a>{% endfor %}
+    	                </span>
+    	            {% endif %}
+                </div>
+                
+                <div class="entry-content">
+		    {{ article.content }}
+
+		</div> <!--/#entry-content-->
+	    </div> <!--/#main-->
+        </section>  <!--/#post-->
+        {#% include 'include/post.html' %#}
+{% if DISQUS_SITENAME %}
+	<section id="comments">
+		<div id="respond">
+			<div id="disqus_thread"></div>
+	        <script type="text/javascript">
+	            var disqus_shortname = '{{ DISQUS_SITENAME }}';
+	
+	            /* * * DON'T EDIT BELOW THIS LINE * * */
+	            (function() {
+	                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+	                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	            })();
+	        </script>
+	        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+	        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+		</div><!-- #respond -->					
+        </section><!-- #comments -->
+    </main>
+{% endif %}
+
+{% endblock %}

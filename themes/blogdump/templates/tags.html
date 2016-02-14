@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} &mdash; Tags{% endblock %}
+{% block content %}
+    <div class="contentandnav">
+        <div id="contents" class="content section-inner posts padding-top">
+          <div class="post-meta">
+            <h3>Tags on <span>{{ SITENAME }}</span> &hellip;</h3>
+          </div>
+          <ul>
+            {% for tag, article in tags %}
+            <li><a href="{{ SITEURL }}/{{ tag.url }}">{{ tag.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% include 'include/side_nav.html' %}
+    </div>
+{% endblock %}

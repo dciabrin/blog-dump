@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block head_links %}
+<link rel="stylesheet" href="{{ SITEURL }}/theme/tipuesearch/tipuesearch.css">
+<script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch.min.js"></script>
+{% endblock head_links %}
+
+{% block content %}
+<script>
+$(document).ready(function() {
+     $('#tipue_search_input').tipuesearch({
+         {% if 'tipue_search' in PLUGINS %}
+             'mode' : 'json',
+         {% else %}
+             'mode': 'live',
+         {% endif %}
+         'show': 10,
+         'newWindow': false,
+         {# I cannot place following statements in the conditionals above because then Tipue Search fails to work. Possibly a bug in Tipue Search. #}
+         {% if 'tipue_search' in PLUGINS %}
+             'contentLocation': 'tipuesearch_content.json'
+         {% else %}
+             'liveDescription': '.article-content'
+         {% endif %}
+     });
+});
+</script>
+<div class="contentandnav custom-background">
+  <main id="contents" class="content section-inner padding-top" id="post">
+	<section class="main">
+          <div id="tipue_search_content"><div id="tipue_search_loading"></div></div>
+	</section> <!-- /#main -->
+  </main> <!-- /#post -->
+{% include 'include/side_nav.html' %}
+</div>
+{% endblock content %}

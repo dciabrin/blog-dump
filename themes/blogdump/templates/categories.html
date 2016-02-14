@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} &mdash; Categories{% endblock %}
+{% block content %}
+    <div class="contentandnav">
+        <div id="contents" class="content section-inner posts padding-top">
+          <div class="post-meta">
+            <h3>Categories on <span>{{ SITENAME }}</span> &hellip;</h3>
+          </div>
+          <ul>
+            {% for category, articles in categories %}
+            <li><a href="{{ SITEURL }}/{{ category.url }}">{{ category }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% include 'include/side_nav.html' %}
+    </div>
+{% endblock %}
