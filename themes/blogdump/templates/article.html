@@ -29,6 +29,9 @@
 	    </div> <!--/#main-->
         </section>  <!--/#post-->
         {#% include 'include/post.html' %#}
+        <div class="hidden">
+        {% include 'include/side_nav.html' %}
+        </div>
 {% if DISQUS_SITENAME %}
 	<section id="comments">
 		<div id="respond">

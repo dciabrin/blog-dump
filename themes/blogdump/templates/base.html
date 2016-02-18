@@ -5,6 +5,7 @@
   {% block head %}
   <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
   <meta charset="utf-8" />
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 
@@ -12,6 +13,7 @@
   <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/lingonberry/css/style.css" />
   <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/tipuesearch/css/tipuesearch.css" />
   <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/blogdump.css" />
+  <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/slide.css" />
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Oswald&#038;ver=3.3.2"/> 
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Inconsolata" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -27,18 +29,21 @@
   {% endblock head %}
 </head>
 
-<body class="home blog" >
-    <!-- <div id="container"> -->
+<body id="body" class="homez blogz" >
+  <div id="page">
     <header id="header" class="header section">
         <div class="header-inner section-inner">
             <a class="site-logo noimg" rel="home" title="{{ SITENAME }}" href="{{ SITEURL }}">
                 <span class="screen-reader-text"></span>
             </a>
-	    <h1 id="site-title" class="site-title"><a href="{{ SITEURL }}">{{ SITENAME }}</a></h1>
+	    <h1 id="site-title" class="site-title">
+              <a href="{{ SITEURL }}">{{ SITENAME }}</a>
+              <a href="#" id="toggle-menu">☰</a>
+            </h1>
 	    {% if SITESUBTITLE %}<h2 id="site-description" class="site-description">{{ SITESUBTITLE }}</h2>{% endif %}
         </div>
     
-    <nav id="menu" class="site-navigation">
+    <nav id="header-nav" class="site-navigation">
         <form class="navbar-search" action="{{ SITEURL }}/search.html" onsubmit="return validateForm(this.elements['q'].value);"> <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input"></form>
 	<div class="menu-navigation-container"><div class="navigation-inner section-inner">
 	    <ul id="menu-navigation" class="blog-menu">
@@ -68,12 +73,15 @@
     </nav><!-- /#menu -->
     </header><!-- /#banner -->
 		                    
+    <!-- <div id="full"> -->
     <!-- Content -->
     <div class="flexcontent">
     {% block content %}{% endblock %}
     </div>
     <!-- Footer -->
     {% include 'include/footer.html' %}
-    <div style="display:none"></div>
+    </div>
+  <!-- </div> -->
+  <script src="{{ SITEURL }}/theme/slide.js"></script>
 </body>
 </html>

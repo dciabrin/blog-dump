@@ -1,14 +1,21 @@
+
 /* placement style */
 
-.blog {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
+/* .header { */
+/*     display: none; */
+/* } */
 
-.flexcontent {
-    flex: 1;
-}
+/* .blog { */
+/*     display: flex; */
+/*     min-height: 100vh; */
+/*     flex-direction: column; */
+/* } */
+
+/* .flexcontent { */
+/*     flex: 1; */
+/*     background: #f4f2ef; */
+/*     /\* background: grey; *\/ */
+/* } */
 
 .contentandnav {
     display: table;
@@ -27,11 +34,19 @@ body {
 }
 
 .blog {
-    background: #f4f2ef;
+    background: #333;
+    /* background: #f4f2ef; */
 }
+
+/* #page { */
+/*     background: #f4f2ef; */
+/* } */
+
 
 .header {
 	background: #73605b;
+        box-shadow: inset 0px -20px 20px -20px rgba(255,255,255,1.0);
+        border-bottom: solid 1px #73605b;
 }
 
 
@@ -56,7 +71,7 @@ header .site-title a {
 .header > .site-navigation {
     /* background: #73605b; */
     /* background: #403d41; */
-    /* border: 1px solid #403d41; */
+    /* border: 1px solid green; */
     /* border-top: 1px solid #403d41; */
     /* border-radius: 4px 4px 4px 4px; */
     /* background: #403d41; */
@@ -112,6 +127,10 @@ body a:hover
     color: #fff;
 }
 
+.blog-menu li:hover a {
+	background: none;
+}
+
 .blog-menu li a:hover {
     /* background-color: #93807b; /\* #363237; *\/ */
     background-color: rgba(0,0,0,0.6);/* #80363237; */
@@ -122,7 +141,7 @@ body a:hover
 
 .navbar-search {
     float: right;
-    margin: 18px;
+    margin: 13px;
     /* border-bottom: 1px solid #363f4a; */
     /* background: red; */
 }
@@ -133,8 +152,8 @@ body a:hover
 }
 
 .blog-menu > li a {
-    padding: 9px;
-    margin: 9px;
+    padding: 8px 15px;
+    margin: 5px 5px;
 }
 
 .header > .site-navigation {
@@ -142,6 +161,12 @@ text-transform: uppercase;
 letter-spacing: 1px;
 padding-left: 10px;
 padding-right: 10px;
+}
+
+.header > .site-navigation:after {
+    display: block;
+    content: '';
+    clear: both;
 }
 
 /* .custom-background { */
@@ -215,7 +240,7 @@ padding-right: 10px;
 }
 
 .header-inner {
-    padding: 1em 0 0.5em 20px;
+    padding: 0.5em 0 0.2em 20px;
     /* padding-left: 20px; */
     min-height: 0;
 }
@@ -263,31 +288,37 @@ padding-right: 10px;
 
 .header .site-description {
     float: left;
-    font-size: 1em;
+    font-size: 15px;
     margin: -30px 0px 0px 13%;
+}
+
+.footer {
+    line-height: 1.4;
 }
 
 .footer .section-inner {
     width: 80%;
     text-align: center;
     position: relative;
-    font-size: 14px;
+    font-size: 13px;
     margin: 1.2em auto;
 }
 
 .footer a {
-    text-decoration: none;
-    border-bottom: 1px dotted;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    /* text-decoration: none; */
+    /* border-bottom: 1px dotted; */
 }
 
 .footer a:hover {
-    text-decoration: none;
-    border-bottom: 1px solid #FFF;
+    /* text-decoration: none; */
+    /* border-bottom: 1px solid #FFF; */
 }
 
-/* .header { */
-/*     background-image: url(images/2x/back.jpg); */
-/* } */
+.header {
+    background-image: url(../img/back.png);
+}
 
 .center {
     /* width: 100%; */
@@ -322,6 +353,10 @@ padding-right: 10px;
     font-size: 180%;
 }
 
+.post-meta {
+    padding-top: 0.5em;
+}
+
 .post-summary {
 	font-size: 1.5em;
 }
@@ -332,7 +367,7 @@ padding-right: 10px;
 
 #contents > .post-meta {
     margin-left: 60px;
-    padding-top: 0.5em;
+    padding-top: 0.1em;
     letter-spacing: inherit;
     text-transform: none;
 }
@@ -340,8 +375,9 @@ padding-right: 10px;
 #contents > .post-meta > h3 > span {
     color: #bbb;
 }
-.dbgz {
-    background: red;
+
+.social-buttons {
+    letter-spacing: 0.2em;
 }
 
 .padding-top {
@@ -481,9 +517,9 @@ padding-right: 10px;
 
 
 html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, ins, kbd, q, s, samp,
+h1, h2, h3, h4, h5, h6, p, blockquote,
+a, abbr, acronym, address, big, cite,
+del, dfn, em, font, ins, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
@@ -491,31 +527,44 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	font-size: 100%;
 }
 
-h1, h2, h3, h4, h5, h6, p, blockquote, address, big, cite, code, em, font, img, small, strike, sub, sup, li, ol, ul, fieldset, form, label, legend, button, table, caption, tr, th, td {
-	line-height:1.5;
+code, kbd {
+    font-size: 0.95em;
 }
-
-h1 {
-	font-size: 2em;
-}
-h2 {
-	font-size: 1.75em;
-}
-h3 {
-	font-size: 1.5em;
-}
-h4 {
-	font-size: 1.25em;
-}
-h5 {
-	font-size: 1.1em;
-}
-
-
 
 body {
     line-height: 1.5;
+    font-size: 11pt;
 }
+
+h1, h2, h3, h4, h5, h6, p, blockquote, address, big, cite, code, em, font, img, small, strike, sub, sup, li, ol, ul, fieldset, form, label, legend, button, table, caption, dl, dt, dd, tr, th, td, pre {
+	line-height:1.3;
+}
+
+h1, h2, h3 {
+    hyphens: none;
+}
+
+h1 {
+    font-size: 2em;
+    line-height: 1;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1;
+}
+h3 {
+    font-size: 1.5em;
+    line-height: 1;
+}
+h4 {
+    font-size: 1.25em;
+    line-height: 1;
+}
+h5 {
+    font-size: 1.1em;
+    line-height: 1;
+}
+
 
 
 .hentry {
@@ -611,4 +660,283 @@ body {
   overflow-x: auto;
   word-wrap: normal;
   white-space: pre;
+}
+
+#toggle-menu {
+    display: none;
+}
+
+
+.article > .post > .content-inner {
+    box-shadow: 0px 5px 5px 3px rgba(100,100,100,0.2);    
+    border-radius: 0;
+}
+
+.header > .site-navigation {
+    font-size: 12pt;
+    margin-top: 0.8em;
+}
+
+p, blockquote, img, small, strike, sub, sup, li,
+ol, ul, label, legend, caption, tr, th, td, dd, dt, dl {
+    text-align: justify;
+}
+
+.content-inner dt {
+    margin-left: 1em;
+}
+
+pre {
+    border-radius: 4px 4px 4px 4px;
+    padding: 0.3em 0.3em 0.1em 0.3em;
+    font-size: 90%;
+    margin: 1em;
+    position: relative;
+    padding-left: 0.5em;
+    top: -0.3em;
+}
+
+
+.article {
+    font-size: 15px;
+}
+
+.article .post h1,
+.article .post h2,
+.article .post h3 {
+    line-height: 1.5em;
+}
+
+code {
+    background: none;
+}
+
+
+/* only screen */
+/* and (min-device-width : 320px)  */
+/* and (max-device-width : 568px); */
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px) {
+/* and (orientation : portrait) { */
+
+
+    html {
+        /* -webkit-text-size-adjust: 50%; */
+    }
+
+    body {
+        /* line-height: 1.0; */
+        font-size: 24pt;
+    }
+
+    #page {
+    }
+    
+    #tipue_search_input {
+        display: none;
+    }
+
+    a.format-bubble {
+        display: none;
+    }
+
+    .content:before {
+        display:none;
+    }
+
+    .content {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 20px;
+    }
+    
+    .content:after {
+        display:none;
+    }
+
+    .post .content-inner {
+        width: 100%;
+        float: none;
+        border-radius: 20px;
+    }
+
+    .header .site-logo {
+        display: none;
+    }
+    .header .site-title {
+        margin-left: 40px;
+        font-size: 2.2em;
+        margin-bottom: 0.5em;
+        position: relative;
+    }
+    .header .site-description {
+        float: none;
+        font-size: 1em;
+        margin: 0;
+        margin-left: 40px;
+    }
+    
+    #toggle-menu {
+        display: block;
+	position: absolute;
+        top: 8px;
+        right: 0px;
+    /* top: 0px; */
+    /*     right: 10px; */
+    }
+
+    #toggle-menu:hover
+    {
+        color: #fff;
+    }
+
+    #page {
+        box-shadow: 30px 0px 50px rgba(0,0,0,0.6);
+    }
+    
+    #menu {
+        font-size: 30pt;
+        box-sizing: border-box;
+        display: none;
+        position: absolute;
+        z-index: 10; /* Make sure the z-index is lower than the #page */
+        top: 0;
+        right: 0;
+        border 1px solid blue;
+        width: 15em;
+        /* height: 100vh; */
+        /* overflow: auto; */
+        text-shadow: black 0px -1px 0px,
+                     black 0px 1px 3px;
+
+        /* background-image: url(../img/noise.png); */
+    }
+
+    h1, h2 {
+        line-height: 1;
+    }
+
+    .article .post h1,
+    .article .post h2,
+    .article .post h3 {
+        line-height: 1em;
+        padding: 0.3em 0;
+    }
+
+    body {
+        /* background: #333; */
+        background-image: url(../img/noise.png);
+    }
+
+    .side_navigation {
+        padding-right: 0;
+    }
+
+    .side_navigation p {
+        color: #666;
+        padding: 0 1em;
+        margin-top: 0;
+    }
+
+
+    #menu h3 {
+        color: #bbb;
+        text-shadow: black 0px -1px 0px,
+                     black 0px 2px 3px;
+
+        /* color: #333;/\* rgba(100,100,100, 0.5); *\/ */
+        /* /\* text-shadow: 0 2px 5px #fff, 0 0 0 #333; *\/ */
+        /* text-shadow: 0px 1px 0px #fff, */
+	/*              -0px -1px 0px black; */
+        border-top: 2px solid rgba(0,0,0,0.5);
+        padding-bottom: 0.3em;
+        margin-top: 0.6em;
+    }
+    
+    #menu h3:before {
+        content:'';
+        display: block;
+        border-top: 2px solid rgba(100,100,100,0.5);
+        padding-bottom: 0.6em;
+    }
+
+    #menu a, #menu li {
+        font-size: 1.1em;
+    }
+    
+    #menu h3:first-child {
+        border: none;
+    }
+    #menu h3:first-child:before {
+        display: none;
+        padding-top: 0px;
+    }
+
+    .social-buttons {
+        font-size: 140%;
+        letter-spacing: 0.1em;
+    }
+
+    .article .post .content-inner {
+        margin: auto;
+        margin-top: 0;
+        width: 100%;
+        float: none;
+        padding-top: 1em;
+        line-height: 1.2;
+        text-align: justify;
+        font-size: 28pt;
+    }
+
+    .content-inner dt {
+        margin-left: 0em;
+    }
+
+    .blog-menu > li a {
+        padding: 9px;
+        margin: 9px 15px;
+    }
+
+    .header > .site-navigation {
+        font-size: 22pt;
+    }
+
+    code, kbd, pre {
+    font-size: 0.85em;
+    }
+}
+
+@media only screen
+and (min-device-width : 320px)
+and (max-device-width : 568px)
+and (orientation : landscape) {
+    /* body { */
+    /* -webkit-text-size-adjust: 50%; */
+    /* } */
+    #page, #menu {
+        font-size: 14px;
+    }
+
+    .header {
+        font-size: 18pt;
+    }
+
+    .article .post .content-inner {
+        font-size: 15pt;
+    }
+    /* .header { */
+    /*     display: none; */
+    /* } */
+
+    #menu {
+        font-size: 18pt;
+        width: 17em;
+    }
+
+    .header > .site-navigation {
+        font-size: 16pt;
+    }
+
 }

@@ -1,14 +1,14 @@
-<aside class="side_navigation">
+<aside id="menu" class="side_navigation">
   <h3 class="nav_author">{{ AUTHOR }}</h3>
 
   <p>Coder, hacker, dreamer. Worked on compilers,
     debuggers, language runtimes. Passionate
     about distributed computing. Obsessed by
     retro hardware and optimizations.
-    <div class="center dbg">
+    <div class="center social-buttons">
         {% for name, link in SOCIAL %}
         <a class="social fa fa-{{ name }}" href="{{ link }}"></a>
-        <span class="sep"></span>
+        <!-- <span class="sep"></span> -->
         {% endfor %}
     </div>
   </p>
