@@ -63,3 +63,8 @@ target/
 
 # pidfiles of Pelican's local HTTP server
 /*.pid
+
+# Editor's tmp files
+.\#*
+*~
+\#*\#
