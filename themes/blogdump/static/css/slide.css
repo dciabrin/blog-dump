@@ -50,32 +50,32 @@ html, body {
  
 /***
  * If the left class is present then transform
- * the #page element 19em to the left.
+ * the #page element 15em to the left.
  */	
 .animating.toleft #page {
-  transform: translate3d( -19em, 0, 0 );
-  -webkit-transform: translate3d( -19em, 0, 0 );
+  transform: translate3d( -15em, 0, 0 );
+  -webkit-transform: translate3d( -15em, 0, 0 );
 }
  
 /***
  * If the right class is present then transform
- * the #page element 19em to the right.
+ * the #page element 15em to the right.
  */
 .animating.toright #page {
-  transform: translate3d( 19em, 0, 0 );
-  -webkit-transform: translate3d( 19em, 0, 0 );
+  transform: translate3d( 15em, 0, 0 );
+  -webkit-transform: translate3d( 15em, 0, 0 );
 }
  
 /***
  * If the menu-visible class is present then
- * shift the #page 19em from the right edge
+ * shift the #page 15em from the right edge
  * via position: absolute to keep it in the 
  * open position. When .animating, .left and
  * .right classes are not present the CSS
  * transform does not apply to #page.
  */
 .menu-visible #page {
-  right: 19em;
+  right: 15em;
 }
 
 /* #page, #menu { */
@@ -85,23 +85,18 @@ html, body {
 
 @media only screen
 and (orientation : landscape) {
-    .animating #page {
-        transition: transform .2s ease-out;
-        -webkit-transition: -webkit-transform .2s ease-out;
-    }
-
     .animating.toleft #page {
-        transform: translate3d( -30em, 0, 0 );
-        -webkit-transform: translate3d( -30em, 0, 0 );
+        transform: translate3d( -17em, 0, 0 );
+        -webkit-transform: translate3d( -17em, 0, 0 );
     }
     
     .animating.toright #page {
-        transform: translate3d( 30em, 0, 0 );
-        -webkit-transform: translate3d( 30em, 0, 0 );
+        transform: translate3d( 17em, 0, 0 );
+        -webkit-transform: translate3d( 17em, 0, 0 );
     }
 
     .menu-visible #page {
-        right: 30em;
+        right: 17em;
     }
     
 }
