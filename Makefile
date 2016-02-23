@@ -65,7 +65,7 @@ html:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
 
 clean:
-	[ ! -d $(OUTPUTDIR) ] || (cd $(OUTPUTDIR) && find "." -maxdepth 1 ! -path "." ! -path "./.git" -exec rm -rf {} \;)
+	[ ! -d $(OUTPUTDIR) ] || (cd $(OUTPUTDIR) && find "." -maxdepth 1 ! -path "." ! -path "./.git*" -exec rm -rf {} \;)
 
 regenerate:
 	$(PELICAN) -r $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
