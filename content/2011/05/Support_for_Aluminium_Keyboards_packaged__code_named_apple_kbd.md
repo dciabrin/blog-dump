@@ -12,9 +12,10 @@ so there is no need to mess with XKB patches anymore...
 To complete the user experience, I'm happy to introduce you
 [`apple-kbd`{#tt1099}](https://github.com/dciabrin/apple-kbd), the
 collection of helpful goodies you need for your Aluminium Keyboard under
-Linux. Here's what you'll get with this package:
-
+Linux. 
 <!-- PELICAN_END_SUMMARY -->
+Here's what you'll get with this package:
+
 
 Automatic keyboard detection under X
 :   At boot time or when the keyboard is plugged in,
@@ -51,11 +52,13 @@ To install `apple-kbd`{#tt1109} on Natty, you basically have to follow
 the instructions found on Launchpad. Just add the PPA to your list of
 available locations:
 
+    ::console
     sudo add-apt-repository ppa:damien-ciabrini/apple-kbd
 
 And once the PPA repository and its GPG key are imported, you can
 install the package as usual:
 
+    ::console
     sudo apt-get update
     sudo apt-get install apple-kbd
 
@@ -64,6 +67,7 @@ questions regarding the behaviour of the keyboard, *i.e.*, Insert key,
 PC keys emulation... At any time, you can reconfigure your keyboard by
 typing:
 
+    ::console
     sudo dpkg-reconfigure apple-kbd
 
 ### Manual installation for the others
@@ -72,11 +76,13 @@ Oh damned, you don't run Natty (like me...)! No worries, you can still
 proceed the Old Way. Just edit `/etc/apt/sources.list`{#tt1117} and add
 the following line at the end of the file:
 
+    ::text
     deb http://ppa.launchpad.net/damien-ciabrini/apple-kbd/ubuntu natty main
 
 And you're good to go! Resynchronize the index of available packages and
 install `apple-kbd`{#tt1120}:
 
+    ::console
     sudo apt-get update
     sudo apt-get install apple-kbd
 
@@ -87,11 +93,13 @@ The simplest way of getting [the sources form
 GitHub](https://github.com/dciabrin/apple-kbd) is to download the latest
 `apple-kbd`{#tt1123} archive:
 
+    ::console
     wget --no-check-certificate https://github.com/dciabrin/apple-kbd/tarball/apple-kbd-0.1 -Oapple-kbd-0.1.tar.gz
     tar zxvf apple-kbd-0.1.tar.gz
 
 But you can of course fork my git repository to play with it:
 
+    ::console
     git clone git://github.com/dciabrin/apple-kbd.git
 
 Have a look at `README.rst`{#tt1128} for the details. Basically, you
@@ -99,6 +107,7 @@ want to edit the file `apple-kbd`{#tt1129} to configure your keyboard
 preferences (Insert key, PC keyboard emulation...). Then, you need the
 usual:
 
+    ::console
     make
     sudo make install
 

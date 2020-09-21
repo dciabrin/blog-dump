@@ -19,6 +19,7 @@ This document describes the concepts involved in booting a Galera cluster, how t
 
 A Galera cluster is identified by a cluster address, stored in the configuration variable `wsrep_cluster_address`. The value of this variable is a URI identifying all the nodes that can potentially be member of the cluster. For example:
 
+    ::text
     wsrep_cluster_address=gcomm://node1,node2,node3
 
 It is used by MariaDB at boot time to register to the cluster and to synchronize its local database with the cluster. The value of `wsrep_cluster_address` conveys a special meaning which can be used to either start a cluster or rejoin it.
@@ -29,6 +30,7 @@ Galera replicates database writes across all nodes of the cluster. A write succe
 
 In order to restart an existing Galera cluster, one needs first to identify a node whose local database contains the latest transaction acknowleged by the cluster, i.e. the one with the biggest seqno. Once identified, MariaDB can be started on the node with option:
 
+    ::text
     wsrep_cluster_address=gcomm://
 
 This bootstraps a new cluster[^1] from this node's local state: the node becomes the new Primary partition, which means the remaining nodes will sync against this new cluster when started with `wsrep_cluster_address=gcomm://node1,node2,node3`.  
@@ -71,14 +73,17 @@ __Do the following steps only if you're sure that the forced bootstrap node is u
 
 That being said, to unblock the boot process, you will need to elect and promote a bootstrap node manually. So first, take control of Galera away from Pacemaker:
 
+    ::console
     [root@node1 ~]# pcs resource unmanage galeracluster
 
 Next, identify the node with the most recent seqno. If Pacemaker previously tried to restart the cluster, you can retrieve this information in the CIB, e.g. for `node1`:
 
+    ::console
     [root@node1 ~]# crm_attribute -N node1 -l reboot --name galeracluster-last-committed -Q
 
 If the last `seqno` is not present in the CIB[^3], you can retrieve it with MariaDB:
 
+    ::console
     [root@node1 ~]# mysqld_safe --wsrep-recover
     151002 13:59:35 mysqld_safe Logging to '/var/log/mariadb/mariadb.log'.
     151002 13:59:35 mysqld_safe Starting mysqld daemon with databases from /var/lib/mysql
@@ -90,16 +95,19 @@ MariaDB will recover its last known cluster position as `UUID:seqno`. In our cas
 
 Once you determine which node has the bigger `seqno`, make it the bootstrap node and force Pacemaker to start Galera by switching the resource's state to *Master*. In our case, assuming `node1` is the bootstrap node, connect to `node1` and run the following commands locally:
 
+    ::console
     [root@node1 ~]# crm_attribute -N node1 -l reboot --name galeracluster-bootstrap -v true
     [root@node1 ~]# crm_attribute -N node1 -l reboot --name master-galeracluster -v 100
     [root@node1 ~]# crm_resource --force-promote -r galeracluster -V
 
 Then, instruct Pacemaker to re-detect the current state of the galera resource. This will clean up failcount and purge knowledge of past failures:
 
+    ::console
     [root@node1 ~]# pcs resource cleanup galeracluster
 
 At this point Galera is up and Pacemaker knows that it is up. Give back control of Galera to Pacemaker and the remaining node will join automatically[^4]:
 
+    ::console
     [root@node1 ~]# pcs resource enable galeracluster
     [root@node1 ~]# pcs resource manage galeracluster
 
@@ -115,6 +123,7 @@ You can force the restart of Galera on `node1` if this node is still up and runn
 
 Apply the step from Scenario 1 __and stop before giving back control to Pacemaker__[^7]. At this point, check whether the Pacemaker cluster has quorum:
 
+    ::console
     [root@node1 ~]# corosync-quorumtool -s
     Quorum information
     ------------------
@@ -141,12 +150,14 @@ Apply the step from Scenario 1 __and stop before giving back control to Pacemake
 
 If it doesn't, you have to unblock quorum temporarily for Pacemaker to manage resources, i.e. set the number of expected votes the the number of nodes which are still on-line. In our example, only `node1` is on-line, so quorum can be temporarily unblocked with:
 
+    ::console
     [root@node1 ~]# corosync-quorumtool -e1
 
 Note that this setting is not definitive. As soon as other nodes rejoin, the number of expected votes will get back to the original value (3 in the example).
 
 Once the cluster is quorate again, you can give back control of Galera to Pacemaker:
 
+    ::console
     [root@node1 ~]# pcs resource manage galeracluster
 
 

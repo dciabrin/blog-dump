@@ -1,0 +1,12 @@
+$primary: #2f3c48 !default;
+$secondary: #6f7f8c !default;
+$success: #3e4d59 !default;
+$danger: #cc330d !default;
+$info: #5c8f94 !default;
+$warning: #6e9fa5 !default;
+$light: #eceeec !default;
+$dark: #1e2b37 !default;
+$link-color: #2c72b7 !default;
+$link-hover-color: scale-color($link-color, $lightness: -50%) !default;
+$code-color: #2c4762 !default;
+

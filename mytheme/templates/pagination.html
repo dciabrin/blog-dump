@@ -1,0 +1,24 @@
+{% if DEFAULT_PAGINATION and articles_paginator.num_pages > 1 %}
+<!-- Pager -->
+<nav class="nav-pagination row justify-content-center">
+    <div class="col-lg-10 col-md-12">
+    <div class="row justify-content-center align-items-center">
+        <div class="col text-left">
+          <a class="btn btn-outline-secondary {% if not articles_page.has_previous() %}d-none{% endif %}" aria-label="Previous" {% if articles_page.has_previous() %}href="{{ SITEURL }}/{{ articles_previous_page.url }}"{% endif %}>
+            <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            Newer
+          </a>
+        </div>
+        <div class="col text-center">
+          {{ articles_page.number }} / {{ articles_paginator.num_pages }}
+        </div>
+        <div class="col text-right">
+          <a class="btn btn-outline-secondary {% if not articles_page.has_next() %}d-none{% endif %}" aria-label="Next" {% if articles_page.has_next() %}href="{{ SITEURL }}/{{ articles_next_page.url }}"{% endif %}>
+            Older
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+          </a>
+        </div>
+    </div>
+    </div>
+<nav>
+{% endif %}

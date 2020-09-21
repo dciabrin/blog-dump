@@ -1,0 +1,6 @@
+{% if article.status != "draft" %}
+    <div class="sharing">
+      <div class="text-uppercase">share</div>
+      <a class="btn btn-outline-secondary btn-sm" href="{{ SITEURL }}/{{ tag.url }}"><i class="fa fa-tag" aria-hidden="true"></i> {{ tag | escape | upper }}</a>
+    </div>
+{% endif %}

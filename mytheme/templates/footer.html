@@ -1,0 +1,21 @@
+<p class="text-center copyright text-muted">
+    Blog powered by <a href="http://getpelican.com">Pelican</a>,
+    which takes great advantage of <a href="http://python.org">Python</a>. <br />
+    {%- if CC_LICENSE or CC_LICENSE_DERIVATIVES or CC_LICENSE_COMMERCIAL %}
+    {% from 'cc-tools/cc-license.html' import cc_license_mark %}
+        {{ cc_license_mark(cc_name=CC_LICENSE,derivatives=CC_LICENSE_DERIVATIVES,commercial=CC_LICENSE_COMMERCIAL,attr_markup=CC_ATTR_MARKUP,attr_props={'title':SITENAME,'name':article.author if article else AUTHOR,'url':SITEURL}) }}
+    {% else %}
+        &copy; {{ copy_date }} {{ AUTHOR }}
+    {% endif %}
+  {% if SOCIAL %}
+  <br />
+  {% for name,link in SOCIAL %}
+      <span class="fa-stack fa">
+      <a href="{{ link }}">
+        <i class="fa fa-circle fa-stack-2x"></i>
+        <i class="fa fa-{{ name|lower }} fa-stack-1x fa-inverse"></i>
+      </a>
+      </span>
+  {% endfor %}
+  {% endif %}
+</p>

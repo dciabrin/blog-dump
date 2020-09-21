@@ -1,0 +1,122 @@
+@charset 'utf-8';
+
+
+// Theme style - fonts
+@import "base/colors";
+@import "base/fonts";
+
+
+// Vendor - bootstrap
+@import "../vendor/bootstrap/scss/bootstrap";
+
+
+// Theme style - bootstrap defaults override
+
+h1 {
+    font-family: $title-font-family;
+}
+h2 {
+    font-size: 1.9rem;
+}
+h3 {
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+
+@include media-breakpoint-down(md) {
+    h2 {
+        font-size: 1.7rem;
+    }
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    h2 {
+        font-size: 1.6rem;
+    }
+    h3 {
+        font-size: 1.4rem;
+        font-weight: 300;
+    }
+}
+//
+//
+
+// Theme style - layouts
+@import "layouts/article";
+@import "layouts/post-preview";
+@import "layouts/header";
+@import "layouts/nav-articles";
+@import "layouts/nav-pagination";
+@import "layouts/footer";
+@import "layouts/share";
+@import "layouts/author-badge";
+
+/////
+// firefox < 75 doesn't support max and has a bug in parsing
+// expressions with env()
+@supports (padding-left: m#{a}x(1px, 0px)) and (padding-left: m#{a}x($spacer, env(safe-area-inset-left, 0px))) {
+.container-fluid {
+    padding-left: m#{a}x($spacer, env(safe-area-inset-left, 0px));
+    padding-right: m#{a}x($spacer, env(safe-area-inset-right, 0px));
+}
+}
+
+// firefox < 75 doesn't support max and has a bug in parsing
+// expressions with env()
+@supports (padding-left: m#{a}x(1px, 0px)) and (padding-left: m#{a}x($spacer, env(safe-area-inset-left, 0px))) {
+.navbar {
+    padding-left: m#{a}x($spacer, env(safe-area-inset-left, 0px));
+    padding-right: m#{a}x($spacer, env(safe-area-inset-right, 0px));
+}
+}
+
+@include media-breakpoint-down(xs) {
+    ul {
+        padding-left: $spacer * 1.25;
+    }
+}
+
+.nav-pagination {
+    padding-top: 1.5rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.footnote ol {
+    padding-left: $spacer * 1.25;
+    font-size: $font-size-base * 0.9;
+}
+
+.footnote p {
+    margin-bottom: $font-size-base * 0.6;
+}
+
+
+q {
+    font-style: italic;
+}
+
+
+p.author > img {
+    width: 15em;
+    height: 15em;
+    border-radius: 7.5em;
+    margin-top: -7.5em;
+    border: solid 5px white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+
+    @include media-breakpoint-down(xs) {
+        width: 10em;
+        height: 10em;
+        border-radius: 5em;
+        margin-top: -6em;
+    }
+}
+
+.post-heading .btn {
+    font-style: normal;
+}

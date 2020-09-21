@@ -16,12 +16,14 @@ support is now much more polished. For you this means several things:
     [JIS](http://damien.ciabrini.free.fr/pub/applekbd-xkb/apple-alukbd-jis.svg)
     (Japanese)! And believe me, it's darned complicated to support JIS
     keyboard's dual layout without having access to the real hardware :D
+
 -   I've added support for base XKB rules, which means that the keyboard
     will now be properly configured **on other OSes than Linux**. I
     personally used [OpenSolaris](http://www.opensolaris.org/) during my
     tests, but it should work equally well on
     [FreeBSD](http://www.freebsd.org/), [OpenBSD](http://openbsd.org/),
     and all their cousins!
+
 -   The keyboard support is now **aware of the system-wide keyboard
     settings** as found in Debian or Fedora for example. If you
     configured your system to default to Dvorak layout, the support will
@@ -43,12 +45,14 @@ patch](http://damien.ciabrini.free.fr/pub/applekbd-xkb/applekbd-xkb-support.patc
 and try to apply it on your XKB install in dry-run. For the sake of the
 example, I assume you downloaded the patch in your `$HOME` directory.
 
+    ::console
     sudo bash
     cd /usr/share/X11/xkb
     gunzip -cd $HOME/applekbd-xkb-support.patch.gz | patch -p1 --dry-run
 
 If the patch applies successfuly, you can proceed and apply it for real:
 
+    ::console
     gunzip -cd $HOME/applekbd-xkb-support.patch.gz | patch -p1
 
 ### HAL support
@@ -65,6 +69,7 @@ file](http://damien.ciabrini.free.fr/pub/applekbd-xkb/10-applekbd-xkb-settings.f
 relevant HAL directory. On my Ubuntu Karmic, this gives (**update:**
 added missing chmod, thanks Patrick):
 
+    ::console
     sudo bash
     rm -f /usr/share/hal/fdi/policy/30user/10-apple-aluminium-kbd.fdi
     mkdir -p /usr/share/hal/fdi/policy/30user
@@ -77,6 +82,7 @@ file](http://damien.ciabrini.free.fr/pub/applekbd-xkb/applekbd-xkb-settings).
 Then copy them respectively in HAL's installation directory and in the
 system-wide configuration directory. On my Ubuntu, ths gives:
 
+    ::console
     sudo bash
     cp $HOME/applekbd-xkb-settings.sh /usr/lib/hal
     chmod +x /usr/lib/hal/applekbd-xkb-settings.sh

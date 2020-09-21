@@ -13,6 +13,7 @@ which implements a very simple "Hello World!":
     [UIKit](http://www.cocoadev.com/index.pl?UIKit) application. This is
     an adaptation of the skeleton program found in [MikMod
     Documentation](http://http//mikmod.raphnet.net/#docs).
+
 -   It shows how to use the higher level sound API
     [Celestial](http://www.cocoadev.com/index.pl?CelestialFramework) to
     control mikmod output. For instance, how to react to volume change
@@ -22,25 +23,28 @@ which implements a very simple "Hello World!":
 
 What to do with this archive once you've extracted it?
 
-      tar -zxf HelloMikMod.tar.gz
-      cd HelloMikMod
+    ::console
+    tar -zxf HelloMikMod.tar.gz
+    cd HelloMikMod
 
 Simple! Modify the Makefile to set the location of the <span
 style="font-family:courier new;">AudioQueue.h</span> header, as well as
 the location where you've installed libmikmod. Once you're done, the
 makefile should look like:
 
-      # directory where AudioQueue.h is located
-      AQDIR=$(HOME)/local/audioqueue
-      # directory where MikMod is located
-      MMDIR=$(HOME)/local/mikmod-iphone
-      # comment the following line when the previous settings are OK for you
-      #$(error configure AudioQueue and Mikmod location in the Makefile first)
+    ::makefile
+    # directory where AudioQueue.h is located
+    AQDIR=$(HOME)/local/audioqueue
+    # directory where MikMod is located
+    MMDIR=$(HOME)/local/mikmod-iphone
+    # comment the following line when the previous settings are OK for you
+    #$(error configure AudioQueue and Mikmod location in the Makefile first)
 
 Then, just build and install the app by typing:
 
-      make
-      scp -r HelloMikMod.app root@iphone:/Applications
+    ::console
+    make
+    scp -r HelloMikMod.app root@iphone:/Applications
 
 Where <span style="font-family:courier new;">iphone</span> stands for
 the hostname or the IP of your iPhone. Note that you will need either

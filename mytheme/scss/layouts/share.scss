@@ -1,0 +1,23 @@
+.sharing {
+    padding: 1em 0 0 0;
+    // word-spacing: 0.2rem;
+    font-size: 120%;
+    .col {
+        padding: 0.1em;
+    }
+    a {
+        font-size: 200%;
+    }
+    span {
+        padding-right: 0.25rem;
+    }
+    span, a {
+        vertical-align: middle;
+    }
+
+    @include media-breakpoint-down(sm) {
+        div .share {
+            display: none;
+        }
+    }
+}

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header">
+    {% if HEADER_COVER %}
+        <div id="header-background" style="background-image: url('{{ SITEURL }}/{{ HEADER_COVER }}'); --parallax-ratio: {{ HEADER_COVER | parallax }};">
+    {% elif HEADER_COLOR %}
+        <div id="header-background" style="background-color: {{ HEADER_COLOR }}">
+    {% else %}
+        <div id="header-background" style="background-image: url('{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/home-bg.jpg')">
+    {% endif %}
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-md-12">
+                    <div class="page-heading">
+                        <h1 class="text-light">{{ SITENAME }}</h1>
+                        {% if SITESUBTITLE %}
+                            <span class="text-secondary subheading">{{ SITESUBTITLE }}</span>
+                        {% endif %}
+                        {% if SOCIAL and SHOW_SOCIAL_ON_INDEX_PAGE_HEADER %}
+                            <ul class="list-inline text-center">
+                            {% for name,link in SOCIAL %}
+                                <li>
+                                    <a href="{{ link }}">
+                                        <span class="fa-stack fa-lg">
+                                            <i class="fa fa-{{ name|lower }} fa-stack-1x fa-inverse"></i>
+                                        </span>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock header %}
+
+{% block content %}
+    {% if INTRO_CONTENT %}
+        <div class="row justify-content-center intro-content">
+            <div class="col-lg-10 col-md-12">
+                {{ INTRO_CONTENT }}
+            </div>
+        </div>
+    {% endif %}
+    {% for article in articles_page.object_list %}
+        <div class="row justify-content-center row-preview">
+        <div class="post-preview col-lg-10 col-md-12">
+            <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
+                <h2 class="post-title">
+                    {{ article.title }}
+                </h2>
+            </a>
+            <p class="post-meta">
+              {{ article.locale_date }}
+            </p>
+            {% if SHOW_FULL_ARTICLE %}
+                {{ article.content }}
+            {% else %}
+                <p class="article-summary">
+                {% if article.has_summary %}
+                    {{ article.summary }}
+                {% elif article.summary %}
+                    {{ article.summary|striptags|truncate(500) }}
+                {% endif %}
+                </p>
+            {% endif %}
+            {% include 'comments.html' %}
+        </div>
+        </div>
+    {% endfor %}
+
+    {% include "pagination.html" %}
+{% endblock content %}

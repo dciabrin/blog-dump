@@ -1,0 +1,13 @@
+@import url(https://fonts.googleapis.com/css?family=Oswald:200,300,400,700);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700);
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,300,400,500);
+
+$title-font-family:Oswald !default;
+$headings-font-family:Roboto !default;
+$font-family-base:Source Sans Pro !default;
+
+$font-size-base: 1.125rem !default;
+
+$navbar-brand-font-size: $font-size-base * 1.125 !default;
+$navbar-toggler-font-size: $font-size-base * 1.125 !default;
+

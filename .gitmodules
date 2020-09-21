@@ -4,3 +4,6 @@
 [submodule "output"]
 	path = output
 	url = https://github.com/dciabrin/dciabrin.github.io.git
+[submodule "mytheme/vendor/bootstrap"]
+	path = mytheme/vendor/bootstrap
+	url = https://github.com/twbs/bootstrap.git

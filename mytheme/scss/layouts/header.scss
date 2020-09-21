@@ -1,0 +1,121 @@
+.intro-header {
+    /* for parallax */
+    position: relative;
+
+    background-color: #808080;
+    margin-bottom: 50px;
+    
+    .site-heading, .page-heading {
+        text-align: center;
+    }
+
+    .post-heading, .page-heading {
+        color: $light;
+        text-shadow: 2px 2px 2px #2f2f2f;
+    }
+
+    .page-heading .text-secondary {
+        color: $light !important;
+    }
+
+    .post-heading .meta {
+        font-weight: 300;
+        font-style: italic;
+    }
+
+    .post-heading .btn {
+        font-style: regular;
+    }
+
+    .post-heading .meta a {
+        color: $light;
+    }
+
+    .post-heading .text-secondary.meta {
+        color: $light;
+        font-style: italic;
+    }
+    
+    .post-heading .subheading {
+        font-family: $font-family-base;
+        font-weight: 600;
+        // margin: 10px 0 30px;
+    }
+    .site-heading .subheading,
+    .page-heading .subheading {
+        font-family: $headings-font-family;
+        font-weight: 300;
+        line-height: 1.1;
+        text-shadow: 2px 2px 2px #3f3f3f;
+    }
+
+    
+    // Responsive margins and padding
+
+    .site-heading, .page-heading {
+        padding: 50px 0 50px;
+    }    
+    .post-heading {
+        padding: 70px 0;
+    }
+
+    @include media-breakpoint-down(sm) {
+        .site-heading, .page-heading {
+            padding: 50px 0;
+        }
+        .post-heading {
+            padding: 50px 0;
+        }
+    }
+
+
+    // Responsive sizes    
+
+    .site-heading h1, .page-heading h1 {
+        font-size: 80px;
+    }
+    .post-heading h1 {
+        font-size: 55px;
+    }
+    .post-heading .subheading, .page-heading .subheading {
+        font-size: 30px;
+    }
+    .post-heading .meta {
+        font-size: 20px;
+    }
+
+    @include media-breakpoint-down(sm) {
+        .site-heading h1, .page-heading h1 {
+            font-size: 50px;
+        }
+        .post-heading h1 {
+            font-size: 35px;
+        }
+        .post-heading .subheading, .page-heading .subheading {
+            font-size: 24px;
+        }
+    }
+
+}
+
+#header-background {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position-x: 50%;
+    background-position-y: 50%;
+    will-change: background-position-y;
+}
+
+#header-background {
+    background-size: auto m#{a}x(calc(100vw / var(--parallax-ratio)), 250%);
+}
+
+@include media-breakpoint-down(sm) {
+    #header-background {
+        background-size: auto m#{a}x(calc(100vw / var(--parallax-ratio)), 270%);
+    }
+}
+
+

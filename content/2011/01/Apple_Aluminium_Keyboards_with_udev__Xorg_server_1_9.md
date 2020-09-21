@@ -11,6 +11,7 @@ Keyboards. Since then, my XKB patches have been accepted in
 -   The multimedia keys can always be accessed by combining Fxx with the
     3rd level chooser (this was option `alul3media`{#tt1099} in my
     original XKB patches)
+
 -   There is now a single XKB option `alupckeys`{#tt1101} to emulate the
     behaviour of a PC keyboard, *i.e.* to enable PrintScreen,
     ScrollLock, SysReq and NumLock (options `alupcfkeys`{#tt1103} and
@@ -39,6 +40,7 @@ and install them in whatever directory your distrib uses to store user
 rules. On Ubuntu, assuming that you downloaded the rules in your home
 directory, this gives:
 
+    ::console
     sudo cp $HOME/95-keymap-apple-kdb.rules /etc/udev/rules.d
 
 Then, download the [configuration
@@ -46,6 +48,7 @@ file](http://damien.ciabrini.free.fr/pub/alu-kbd-udev/apple-kbd) and
 install it in your distrib's configuration directory. On Ubuntu, this
 gives:
 
+    ::console
     sudo cp $HOME/apple-kbd /etc/default
 
 The configuration file contains various key-value pairs that drive the
@@ -78,6 +81,7 @@ Meanwhile, you can grab [this XKB
 patch](http://damien.ciabrini.free.fr/pub/alu-kbd-udev/xkb-data-1.8-evdev.patch)
 and try to apply it:
 
+    ::console
     sudo bash
     cd /usr/share/X11/xkb/rules
     patch -p0 --dry-run < $HOME/xkb-data-1.8-evdev.patch
@@ -85,6 +89,7 @@ and try to apply it:
 If the patch applies successfully, you can proceed and apply it for
 real:
 
+    ::console
     patch -p0 < $HOME/xkb-data-1.8-evdev.patch
 
 Steps to come

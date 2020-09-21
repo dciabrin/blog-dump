@@ -11,6 +11,7 @@ happen:
 
 -   Supporting the additional keys (F13..F19) and geometry (physical
     layout) under X.org
+
 -   Making the keyboard auto-configured at X.org startup. No need to
     mess with xorg.conf!
 
@@ -19,9 +20,12 @@ need those ones too:
 
 -   **Making this fn key located on top of the delete key behave like a
     regular PC keyboard: Insert!**
+
 -   Making multimedia keys output Fxx symbols by default
+
 -   Making F13..F15 behave like those charmingly obsolete Scroll
     Lock..Print Screen keys
+
 -   Keeping the multimedia keys accessible when the fn key is remapped
     to Insert
 
@@ -55,12 +59,14 @@ more like a PC keyboard (more on that later). To install it, first
 *pretend* to apply the patch in the directory that holds the XKB data.
 On my Ubuntu, this gives:
 
+    ::console
     sudo bash
     cd /usr/share/X11/xkb
     gunzip -cd $HOME/xkb-apple-aluminium-kdb-iso.patch.gz | patch -p1 --dry-run
 
 If the patch applies successfuly, you can proceed and apply it for real:
 
+    ::console
     gunzip -cd $HOME/xkb-apple-aluminium-kdb-iso.patch.gz | patch -p1
 
 Once you have the relevant XKB definition for your keyboard, you need to
@@ -80,6 +86,7 @@ create `30user` if it doesn't exist.
 Now that you installed everything, restart HAL. For example, on a
 Debian-like distro:
 
+    ::console
     sudo /etc/init.d/hal restart
 
 Then log out from your current X session and start a new one. If
@@ -87,7 +94,8 @@ everything went well, you should now be able to see the Aluminium
 Keyboard in your keyboard preferences application. The screenshots below
 show the result under GNOME:
 
-[![](http://4.bp.blogspot.com/_ZBvdcyyTybw/Sg3ut8052mI/AAAAAAAAAIs/2tOjbryJ938/s320/alukbd-preferences.png)](http://4.bp.blogspot.com/_ZBvdcyyTybw/Sg3ut8052mI/AAAAAAAAAIs/2tOjbryJ938/s1600-h/alukbd-preferences.png)[![](http://1.bp.blogspot.com/_ZBvdcyyTybw/Sg3ut5bmmBI/AAAAAAAAAI0/OM7w35rbAC0/s320/alukbd-geometry.png)](http://1.bp.blogspot.com/_ZBvdcyyTybw/Sg3ut5bmmBI/AAAAAAAAAI0/OM7w35rbAC0/s1600-h/alukbd-geometry.png)
+![preferences]({attach}alukbd-preferences.png)
+![geometry]({attach}alukbd-geometry.png)
 
 Make it a PC keyboard!
 ----------------------
@@ -124,6 +132,7 @@ This one is not new. In order to boot with Fxx keys enabled, you must
 pass an option to the `hid` Linux module. On my Ubuntu, this can be done
 by updating modprobe options and rebuilding an `initrd` image.
 
+    ::console
     sudo bash
     echo "options hid pb_fnmode=2" >> /etc/modprobe.d/alukbd
     echo "options hid_apple fnmode=2" >> /etc/modprobe.d/alukbd
@@ -147,7 +156,7 @@ Naturally, the simplest way of using these XKB options is to enable them
 via your keyboard preferences application. For instance, GNOME users can
 find them in the Keyboard Layout Options:
 
-[![](http://3.bp.blogspot.com/_ZBvdcyyTybw/Sg3ut3h88CI/AAAAAAAAAI8/pX908oljDJM/s320/alukbd-options.png)](http://3.bp.blogspot.com/_ZBvdcyyTybw/Sg3ut3h88CI/AAAAAAAAAI8/pX908oljDJM/s1600-h/alukbd-options.png)
+![options]({attach}alukbd-options.png)
 
 Conclusion
 ----------

@@ -6,7 +6,7 @@ AUTHOR = u'Damien Ciabrini'
 AUTHORS = [u'Damien Ciabrini']
 SITENAME = u"(blog-dump 'dciabrin)"
 SITESUBTITLE = u"A coding and hacking diary"
-SITEURL = 'http://damien.ciabrini.name'
+SITEURL = 'https://dciabrin.net'
 
 PATH = 'content'
 
@@ -16,6 +16,8 @@ DEFAULT_LANG = u'en'
 
 # Feed generation is usually not desired when developing
 FEED_DOMAIN = SITEURL
+# FEED_ALL_ATOM = 'feeds/all.atom.xml'
+# TAG_FEED_ATOM = 'feeds/%s.tag.atom.xml'
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
@@ -28,8 +30,20 @@ DISPLAY_CATEGORIES_ON_MENU = True
 # TODO add cetegories Work, Hacks, Projects
 
 # Blog customization
-PLUGIN_PATHS = ['plugins']
-PLUGINS = ['summary','tag_cloud', 'tipue_search']
+PLUGIN_PATHS = ['localplugins','plugins']
+PLUGINS = [
+    'assets',
+    'neighbors',          # navigation at the end of the page
+    'render_math',        # inline math in article
+    'share_post',         # static share buttons (reddit, hn, twitter...) 
+]
+
+# TODO check whether we need this
+ASSET_CONFIG = (
+    ('less_bin', 'lessc'),
+)
+
+LIBSASS_STYLE = 'expanded'
 
 # Blogroll
 LINKS = (('Archives', '/archives.html'),)
@@ -37,16 +51,31 @@ LINKS = (('Archives', '/archives.html'),)
 # Social
 SOCIAL = (('twitter', 'http://twitter.com/dciabrin'),
           ('github', 'http://github.com/dciabrin'),
-          ('google-plus', 'https://plus.google.com/+DamienCiabrini'),
           ('linkedin', 'https://www.linkedin.com/in/damien-ciabrini-70514187'),
           )
 
 # Static data
-STATIC_PATHS = ['extra/CNAME']
-EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
+STATIC_PATHS = [
+    'img/covers',
+    'img/',
+    'img/favicon.ico',
+    'extra/CNAME',
+    ]
+EXTRA_PATH_METADATA = {
+    'extra/CNAME': {'path': 'CNAME'},
+    'img/favicon.ico': {'path': 'favicon.ico'},
+}
+
+# do not copy theme's sources files in the generated website 
+STATIC_EXCLUDES = ['vendor']
+
+# Do not parse content that ships with articles
+READERS = {
+    'png': None
+}
 
 # Generate those pages
-DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search'))
+# DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search'))
 
 # Structure and permalinks
 ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{slug}.html'
@@ -64,4 +93,45 @@ LICENSE_URL = 'CC-BY 4.0'
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
 
-THEME = 'themes/blogdump' # 1
+# Custom theme
+THEME = 'mytheme'
+COLOR_SCHEME_CSS = 'friendly.css'
+
+# for parallax
+import os
+import imagesize
+def img_ratio(url):
+    width, height = imagesize.get(os.path.join('content',url))
+    return "%.3f"%(width/height)
+JINJA_FILTERS = {'parallax': img_ratio}
+
+# CommonHTML is the only backend that renders properly
+# when mathml markups are tweaked with CSS
+MATH_JAX = {
+    'source': "'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-AMS_CHTML'",
+    'linebreak_automatic': True
+}
+
+FAVICON= 'favicon.ico'
+
+DISABLE_CUSTOM_THEME_JAVASCRIPT = 1
+FOOTER_ARTICLE_NAVIGATION = 1
+
+# not needed, everything's inside the scss
+# CSS_OVERRIDE = 'blogdump.css'
+# index image/color
+# HEADER_COVER = 'img/covers/alex-knight-Ys-DBJeX0nE-unsplash.jpg'
+# HEADER_COVER = 'img/covers/john-towner-JgOeRuGD_Y4-unsplash.jpg'
+# HEADER_COVER = 'img/covers/995147.jpg'
+# ARTICLE_COVER = 'img/covers/john-towner-JgOeRuGD_Y4-unsplash.jpg'
+ARTICLE_COVER = 'img/covers/alex-knight-Ys-DBJeX0nE-unsplash.jpg'
+# HEADER_COVER = 'img/covers/andre-benz-cXU6tNxhub0-unsplash.jpg'
+# HEADER_COVER = 'img/covers/thong-vo-Maf7wdHCmvo-unsplash.jpg'
+NO_HEADER_COVER = 1
+
+
+# https://unsplash.com/@emsiphoto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+# HEADER_COVER = 'img/covers/mattia-costa-VoBr3z0_BvM-unsplash.jpg'
+# HEADER_COVER = 'img/covers/joseph-barrientos-oQl0eVYd_n8-unsplash.jpg'
+HEADER_COVER = 'img/covers/big-dodzy-59J9tB7KoOU-unsplash.jpg'
+# HEADER_COVER = 'img/covers/joao-marcelo-martins-W7u5wIkFIoQ-unsplash.jpg'

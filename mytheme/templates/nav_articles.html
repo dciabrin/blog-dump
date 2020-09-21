@@ -1,0 +1,26 @@
+<!-- {% if FOOTER_ARTICLE_NAVIGATION  %} -->
+<nav class="nav-articles row justify-content-center">
+    <div class="col-lg-10 col-md-12">
+    <div class="row justify-content-center">
+        <div class="col newer-article text-left">
+          {% if article.next_article %}
+            <div>Newer Post</div>
+            <a aria-label="Previous" href="{{ SITEURL }}/{{ article.next_article.url }}">
+              {{ article.next_article.title }}
+            </a>
+          {% endif %}
+        </div>
+        <div class="col text-center">
+        </div>
+        <div class="col older-article text-right">
+            {% if article.prev_article %}
+            <div>Older Post</div>
+            <a aria-label="Next" href="{{ SITEURL }}/{{ article.prev_article.url }}">
+              {{ article.prev_article.title }}
+            </a>
+          {% endif %}
+        </div>
+    </div>
+    </div>
+</nav>
+<!-- {% endif %} -->

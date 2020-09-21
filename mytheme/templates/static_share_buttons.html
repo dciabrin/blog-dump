@@ -1,0 +1,13 @@
+{% if article.status != "draft" %}
+    <div class="sharing row justify-content-center">
+      <div class="col text-center">
+        <span class="meta text-uppercase share">share</span>
+        <a href="{{article.share_post['twitter']}}" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+        <a href="{{article.share_post['reddit']}}" target="_blank"><i class="fa fa-reddit-square" aria-hidden="true"></i></a>
+        <a href="{{article.share_post['hacker-news']}}" target="_blank"><i class="fa fa-y-combinator-square" aria-hidden="true"></i></a>
+        <a href="{{article.share_post['linkedin']}}" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+        <a href="{{article.share_post['facebook']}}" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+        <a href="{{article.share_post['email']}}" target="_blank"><i class="fa fa-envelope-square" aria-hidden="true"></i></a>
+      </div>
+    </div>
+{% endif %}
