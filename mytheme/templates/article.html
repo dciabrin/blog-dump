@@ -37,8 +37,10 @@
             {% else %}
                 <meta property="twitter:image" content="{{ SITEURL }}/{{ article.twitter_image }}">
             {% endif %}
+        {% elif article.twitter_card %}
+            <meta name="twitter:image" content="{{ SITEURL }}/{{ article.twitter_card }}">
         {% elif article.header_cover %}
-            <meta name="twitter:image" content="{{ SITEURL }}{{ article.header_cover }}">
+            <meta name="twitter:image" content="{{ SITEURL }}/{{ article.header_cover }}">
         {% else %}
             <meta name="twitter:image" content="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/post-bg.jpg">
         {% endif %}

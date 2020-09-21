@@ -4,7 +4,7 @@ tags: mariadb,crypto,python
 date: 2020-09-21T09:00:00+0200
 lang: en
 header_cover: img/covers/james-sutton-FqaybX9ZiOU-unsplash.jpg
-twitter:card: img/cards/mariadb-auth_ed25519.png
+twitter_card: img/cards/mariadb-auth_ed25519.png
 og:image: img/cards/mariadb-auth_ed25519.png
 category: Code
 

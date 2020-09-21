@@ -6,10 +6,11 @@ BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
 CONFFILE=$(BASEDIR)/pelicanconf.py
+
 PUBLISHCONF=$(BASEDIR)/publishconf.py
-
-GITHUB_PAGES_BRANCH=gh-pages
-
+PUBLISHOUTPUTDIR=$(BASEDIR)/published-output
+PUBLISHGHPAGES=$(BASEDIR)/dciabrin.github.io
+GITHUB_PAGES_BRANCH=master
 
 DEBUG ?= 0
 ifeq ($(DEBUG), 1)
@@ -72,7 +73,9 @@ else
 endif
 
 publish:
-	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
+	$(PELICAN) $(INPUTDIR) -o $(PUBLISHOUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
+	mkdir -p $(PUBLISHGHPAGES)
+	rsync -a --delete --exclude .git --exclude .gitignore --exclude .webassets-cache $(PUBLISHOUTPUTDIR)/ $(PUBLISHGHPAGES)/
 
 github: publish
 	ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
