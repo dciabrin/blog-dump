@@ -3,8 +3,8 @@ tags: apple-kbd,apple
 date: 2009-05-15T00:16:00.013+02:00
 category: Code
 
-Like many others, I've bought an Aluminium Keyboard for ~~its cool
-style~~ the smooth typing experience it provides. Mine is a wired
+Like many others, I've bought an Aluminium Keyboard for <del>its cool
+style</del> the smooth typing experience it provides. Mine is a wired
 version, ISO variant (international, 110-keys). It's not working 100%
 out-of-the-box under Linux, so this post explains what I did to make it
 happen:
@@ -94,8 +94,10 @@ everything went well, you should now be able to see the Aluminium
 Keyboard in your keyboard preferences application. The screenshots below
 show the result under GNOME:
 
-![preferences]({attach}alukbd-preferences.png)
-![geometry]({attach}alukbd-geometry.png)
+<center>
+[![preferences]({attach}alukbd-preferences.png)]({attach}alukbd-preferences.png)
+[![geometry]({attach}alukbd-geometry.png)]({attach}alukbd-geometry.png)
+</center>
 
 Make it a PC keyboard!
 ----------------------
@@ -156,7 +158,9 @@ Naturally, the simplest way of using these XKB options is to enable them
 via your keyboard preferences application. For instance, GNOME users can
 find them in the Keyboard Layout Options:
 
-![options]({attach}alukbd-options.png)
+<center>
+[![options]({attach}alukbd-options.png)]({attach}alukbd-options.png)
+</center>
 
 Conclusion
 ----------
