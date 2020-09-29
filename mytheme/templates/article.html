@@ -91,9 +91,9 @@
     <!-- Page Header -->
     <header class="intro-header">
     {% if article.header_cover %}
-        <div id="header-background" style="background-image: url('{{ SITEURL }}/{{ article.header_cover }}'); --parallax-ratio: {{ article.header_cover | parallax }};">
+        <div id="header-background" style="background-image: url('{{ SITEURL }}/{{ article.header_cover }}'); --parallax-ratio: {{ article.header_cover | parallax }}; background-color: {{ article.header_cover | base_color }};">
     {% elif ARTICLE_COVER %}
-        <div id="header-background" style="background-image: url('{{ SITEURL }}/{{ ARTICLE_COVER }}'); --parallax-ratio: {{ ARTICLE_COVER | parallax }};">
+        <div id="header-background" style="background-image: url('{{ SITEURL }}/{{ ARTICLE_COVER }}'); --parallax-ratio: {{ ARTICLE_COVER | parallax }}; background-color: {{ ARTICLE_COVER | base_color }};">
     {% elif HEADER_COLOR %}
         <div id="header-background" style="background-color: {{ HEADER_COLOR }}">
     {% else %}
@@ -104,13 +104,15 @@
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-md-12">
                     <div class="post-heading">
-                        <!-- <i class="fa fa-calendar" aria-hidden="true"></i>&nbsp; -->
                         <span class="text-light meta">{{ article.locale_date }}</span>
                         <h1 class="text-light">{{ article.title|striptags }}</h1>
                         {% if article.headline %}
                             <h3 class="subheading">{{ article.headline }}</h3>
-                        {% endif %}
-                        <span class="meta">
+                            {% endif %}
+                            {% for author in article.authors %}
+                            <a class="d-none d-print-block author" rel="author">{{ author.name }}</a>
+                            {% endfor %}
+                        <span class="meta d-print-none">
                           {% if article.tags %}
                           &nbsp;
                           {% for tag in article.tags %}
@@ -133,13 +135,23 @@
     <div class="row justify-content-center">
     <div class="col-lg-10 col-md-12">
         <article>
-            {{ article.content }}
+          {{ article.content }}
+          {% if article.print_references %}
+          <h2 class="d-none d-print-block">References</h2>
+          <table class="print_refs d-none d-print-block">
+          {% for url, url_id in article.print_references|dictsort(false, 'value') %}
+            <tr>
+              <td class="print_ref_id">[<a id="prt_ref_{{ url_id }}">{{ url_id }}</a>]</td><td class="print_ref"><p>{{ url }}</p></td>
+            </tr>
+          {% endfor %}
+          </table>
+          {% endif %}
         </article>
     </div>
     </div>
 
     {% include 'static_share_buttons.html' %}
-    <hr />
+    <hr class="d-print-none" />
     {% include 'comments_section.html' %}
 
     {% include 'nav_articles.html' %}

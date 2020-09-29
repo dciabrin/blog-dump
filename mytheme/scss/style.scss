@@ -73,6 +73,17 @@ h3 {
     padding-right: m#{a}x($spacer, env(safe-area-inset-right, 0px));
 }
 }
+.intro-header .container-fluid {
+    text-align: inherit;
+}
+
+.container-fluid {
+    text-align: justify;
+
+    @include media-breakpoint-down(xs) {
+        text-align: unset;
+    }
+}
 
 @include media-breakpoint-down(xs) {
     ul {
@@ -101,6 +112,12 @@ q {
 }
 
 
+li {
+    p {
+        margin-bottom: 0.6rem;
+    }
+}
+
 img {
     max-width: 80%;
 }
@@ -123,4 +140,38 @@ p.author > img {
 
 .post-heading .btn {
     font-style: normal;
+}
+
+.searchbox {
+    margin-bottom: 3em;
+}
+
+.searchresults {
+    a {
+        font-size: 1.25rem;
+    }
+
+    span.fa {
+        font-size: 4rem;
+    }
+
+    .excerpt {
+        color: var(--gray);
+        margin-bottom: 2rem;
+    }
+
+    .match {
+        font-weight: bold;
+    }
+
+    .noresult {
+        color: var(--gray);
+        text-align: center;
+    }
+
+    @include media-breakpoint-down(sm) {
+        a {
+            font-size: 1.125rem;
+        }
+    }
 }

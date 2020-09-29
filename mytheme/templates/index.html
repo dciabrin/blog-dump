@@ -5,7 +5,7 @@
     <!-- Set your background image for this header on the line below. -->
     <header class="intro-header">
     {% if HEADER_COVER %}
-        <div id="header-background" style="background-image: url('{{ SITEURL }}/{{ HEADER_COVER }}'); --parallax-ratio: {{ HEADER_COVER | parallax }};">
+        <div id="header-background" style="background-image: url('{{ SITEURL }}/{{ HEADER_COVER }}'); --parallax-ratio: {{ HEADER_COVER | parallax }}; background-color: {{ HEADER_COVER | base_color }};">
     {% elif HEADER_COLOR %}
         <div id="header-background" style="background-color: {{ HEADER_COLOR }}">
     {% else %}

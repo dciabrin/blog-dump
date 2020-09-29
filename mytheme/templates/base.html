@@ -53,14 +53,21 @@
 
         <!-- Blog theme + Bootstrap compiled to CSS -->
         {% assets filters="libsass", output="css/blogtheme.css", "../scss/style.scss" %}
-        <link rel="stylesheet" href="{{ SITEURL }}/{{ ASSET_URL }}">
+        <link rel="stylesheet" media="screen" href="{{ SITEURL }}/{{ ASSET_URL }}">
+        {% endassets %}
+
+        <!-- Blog theme + Bootstrap compiled to CSS -->
+        {% assets filters="libsass", output="css/blogprint.css", "../scss/style-print.scss" %}
+        <link rel="stylesheet" media="print" href="{{ SITEURL }}/{{ ASSET_URL }}">
         {% endassets %}
 
         <!-- Code highlight color scheme -->
         {% if COLOR_SCHEME_CSS %}
-            <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/{{ COLOR_SCHEME_CSS }}" rel="stylesheet">
+            <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/{{ COLOR_SCHEME_CSS }}" media="screen" rel="stylesheet">
+            <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/bw.css?fw" media="print" rel="stylesheet">
         {% else %}
-            <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/friendly.css" rel="stylesheet">
+            <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/friendly.css" media="screen" rel="stylesheet">
+            <link href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/code_blocks/bw.css?wf" media="print" rel="stylesheet">
         {% endif %}
 
         <!-- {% if CSS_OVERRIDE %} -->
@@ -70,6 +77,16 @@
 
         <!-- Custom Fonts -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+        <!-- jQuery -->
+        <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
+
+        <!-- Parallax -->
+        <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/parallax.js?nocache"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script>
+
     {% endblock head %}
 
 	{% block opengraph %}
@@ -110,7 +127,7 @@
 {% endif %}
 
     <!-- Navigation -->
-    <nav class="navbar navbar-light navbar-expand-lg navbar-customz navbar-fixed-topz">
+    <nav class="navbar d-print-none navbar-light navbar-expand-lg navbar-customz navbar-fixed-topz">
         <!-- <div class="container-fluid"> -->
             <!-- Brand and toggle get grouped for better mobile display -->
             <!-- <div class="navbar-header page-scroll"> -->
@@ -142,7 +159,7 @@
                 </ul>
                 <ul class="navbar-nav">
                   <li><a class="nav-link" href="#"><i class="fa fa-search"></i></a></li>
-                  <li><a class="nav-link" href="/tags"><i class="fa fa-tags"></i></a></li>
+                  <li><a class="nav-link" href="{{ SITEURL }}/tags.html"><i class="fa fa-tags"></i></a></li>
                   <li><a class="nav-link" href="#"><i class="fa fa-rss"></i></a></li>
                 </ul>
             </div>
@@ -161,7 +178,7 @@
     <!-- <hr> -->
 
     <!-- Footer -->
-    <footer>
+    <footer class="d-print-none">
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-md-12">
@@ -175,17 +192,9 @@
         </div>
     </footer>
 
-    <!-- jQuery -->
-    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
-
-    <!-- Parallax -->
-    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/parallax.js?nocache"></script>
     <script>
       parallax('header-background');
     </script> 
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script>
 
     {% include 'analytics.html' %}
     {% include 'disqus_script.html' %}

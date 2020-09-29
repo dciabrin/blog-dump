@@ -6,7 +6,7 @@
     <!-- Page Header -->
     <header class="intro-header">
     {% if page.header_cover %}
-        <div id="header-background" style="background-image: url('{{ SITEURL }}/{{ page.header_cover }}'); --parallax-ratio: {{ page.header_cover | parallax }};">
+        <div id="header-background" style="background-image: url('{{ SITEURL }}/{{ page.header_cover }}'); --parallax-ratio: {{ page.header_cover | parallax }}; background-color: {{ page.header_cover | base_color }};">
     {% elif HEADER_COLOR %}
         <div id="header-background" style="background-color: {{ HEADER_COLOR }}">
     {% else %}
