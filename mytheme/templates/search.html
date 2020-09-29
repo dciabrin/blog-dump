@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Search this blog...{% endblock %}
+
+{% block header %}
+    <!-- Page Header -->
+    <header class="intro-header">
+    {% if SEARCH_COVER %}
+        <div id="header-background" style="background-image: url('{{ SITEURL }}/{{ SEARCH_COVER }}'); --parallax-ratio: {{ SEARCH_COVER | parallax }}; background-color: {{ SEARCH_COVER | base_color }};">
+    {% else %}
+        <div id="header-background" style="background-color: {{ HEADER_COLOR }}">
+    {% endif %}
+        </div>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-md-12">
+                    <div class="page-heading">
+                        <h1 class="text-light">Search this blog...</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock header %}
+
+{% block content %}
+      <div class="row justify-content-center">
+      <div class="input-group col-lg-6 col-md-8 searchbox">
+        <input id="searchbox" type="text" class="form-control" placeholder="Search">
+        <div class="input-group-append">
+          <button id="searchbutton" class="btn btn-success" type="submit">Search</button>
+        </div>
+      </div>
+      </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-md-12">
+        <div class="searchresults" id="searchresults">
+        </div>
+      </div>
+    </div>
+
+    <!-- <hr> -->
+
+    <!-- lunr search, from a precomputed tipuesearch index-->
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script src="./tipuesearch_content.js"></script>
+    <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/search.js?nocache"></script>
+
+
+{% endblock content %}
+
+</body>
+
+</html>

@@ -36,6 +36,8 @@ PLUGINS = [
     'neighbors',          # navigation at the end of the page
     'render_math',        # inline math in article
     'share_post',         # static share buttons (reddit, hn, twitter...) 
+    'print_media',        # nice rendering of aref for print media
+    'tipue_search',       # static search index
 ]
 
 # TODO check whether we need this
@@ -75,7 +77,7 @@ READERS = {
 }
 
 # Generate those pages
-# DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search'))
+DIRECT_TEMPLATES = (('index', 'tags', 'categories', 'archives', 'search'))
 
 # Structure and permalinks
 ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{slug}.html'
@@ -99,11 +101,21 @@ COLOR_SCHEME_CSS = 'friendly.css'
 
 # for parallax
 import os
+import sys
 import imagesize
+import subprocess
 def img_ratio(url):
     width, height = imagesize.get(os.path.join('content',url))
     return "%.3f"%(width/height)
-JINJA_FILTERS = {'parallax': img_ratio}
+def base_color(url):
+    gfx=os.path.join('content',url)
+    color=subprocess.getoutput("convert '%s' -scale 1x1\! -format '%%[hex:u]' info:-"%gfx)
+    return "#"+color
+
+JINJA_FILTERS = {
+    'parallax': img_ratio,
+    'base_color': base_color
+}
 
 # CommonHTML is the only backend that renders properly
 # when mathml markups are tweaked with CSS
@@ -117,21 +129,8 @@ FAVICON= 'favicon.ico'
 DISABLE_CUSTOM_THEME_JAVASCRIPT = 1
 FOOTER_ARTICLE_NAVIGATION = 1
 
-# not needed, everything's inside the scss
-# CSS_OVERRIDE = 'blogdump.css'
-# index image/color
-# HEADER_COVER = 'img/covers/alex-knight-Ys-DBJeX0nE-unsplash.jpg'
-# HEADER_COVER = 'img/covers/john-towner-JgOeRuGD_Y4-unsplash.jpg'
-# HEADER_COVER = 'img/covers/995147.jpg'
-# ARTICLE_COVER = 'img/covers/john-towner-JgOeRuGD_Y4-unsplash.jpg'
-ARTICLE_COVER = 'img/covers/alex-knight-Ys-DBJeX0nE-unsplash.jpg'
-# HEADER_COVER = 'img/covers/andre-benz-cXU6tNxhub0-unsplash.jpg'
-# HEADER_COVER = 'img/covers/thong-vo-Maf7wdHCmvo-unsplash.jpg'
-NO_HEADER_COVER = 1
-
-
-# https://unsplash.com/@emsiphoto?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
-# HEADER_COVER = 'img/covers/mattia-costa-VoBr3z0_BvM-unsplash.jpg'
-# HEADER_COVER = 'img/covers/joseph-barrientos-oQl0eVYd_n8-unsplash.jpg'
+# custom backgrounds
 HEADER_COVER = 'img/covers/big-dodzy-59J9tB7KoOU-unsplash.jpg'
-# HEADER_COVER = 'img/covers/joao-marcelo-martins-W7u5wIkFIoQ-unsplash.jpg'
+ARTICLE_COVER = 'img/covers/alex-knight-Ys-DBJeX0nE-unsplash.jpg'
+SEARCH_COVER = 'img/covers/andrew-neel-1-29wyvvLJA-unsplash.jpg'
+# NO_HEADER_COVER = 1
