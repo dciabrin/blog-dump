@@ -215,7 +215,7 @@ database, it only stores a base64 representation of the public key derived from 
 
 ## Conclusion
 
-Starting PyMySQL 0.10.1, you can connect to MariaDB with users that have been configured to authenticate
+Starting PyMySQL 0.10.0, you can connect to MariaDB with users that have been configured to authenticate
 via `auth_ed25519`. This new authentication plugin drops the use of SHA-1 for a more secure and more
 future-proof server authentication.
 
@@ -226,7 +226,7 @@ that Specific SQL commands must be used to enable `auth_ed25519` on a per-user b
 delegated to a generic component such as `puppet-mysql`, as it is currently done in OpenStack. But that is a
 story for another day.
 
-PyMySQL 0.10.1 is now available in PyPI and at least in Fedora Rawhide and Arch Linux, so it's the right time
+PyMySQL 0.10.0 is now available in PyPI and at least in Fedora Rawhide and Arch Linux, so it's the right time
 to try it out.
 
 
