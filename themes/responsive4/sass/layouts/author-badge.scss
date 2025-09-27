@@ -1,0 +1,19 @@
+p.author {
+    text-align: center;
+}
+
+p.author > img {
+    width: 15em;
+    height: 15em;
+    border-radius: 7.5em;
+    margin-top: -7.5em;
+    border: solid 5px white;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+
+    @include media-breakpoint-down(xs) {
+        width: 10em;
+        height: 10em;
+        border-radius: 5em;
+        margin-top: -5em;
+    }
+}

@@ -73,3 +73,6 @@ target/
 /dciabrin.github.io/
 
 old
+
+# Vendor sass
+themes/responsive4/sass/vendor

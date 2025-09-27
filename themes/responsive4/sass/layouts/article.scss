@@ -1,0 +1,37 @@
+// Ensure headings have sensible top-margin for readability
+// Assume margin collapsing is not an issue inside an article
+article {
+    h1 {
+        margin-top: 0.67em;
+    }
+    h2 {
+        margin-top: 0.83em;
+    }
+    h3 {
+        margin-top: 1em;
+    }
+    h4 {
+        margin-bottom: 1.33em;
+    }
+    h5 {
+        margin-top: 1.67em;
+    }
+    h6 {
+        margin-top: 2.33em;
+    }
+    pre {
+        // padding: 1rem;
+        font-size: 80%;
+        color: #40464d;
+        background: rgba(230,230,230,0.3);
+    }
+    code {
+        word-wrap: inherit;
+    }
+
+    @include media-breakpoint-down(sm) {
+        div .share {
+            display: none;
+        }
+    }
+}

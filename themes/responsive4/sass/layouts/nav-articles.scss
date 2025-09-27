@@ -1,0 +1,9 @@
+.nav-articles {
+    padding-top: 1rem;
+    .older-article, .newer-article {
+        div {
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+    }
+}

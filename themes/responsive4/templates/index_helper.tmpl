@@ -1,0 +1,23 @@
+{#  -*- coding: utf-8 -*- #}
+{% macro html_pager() %}
+    {% if prevlink or nextlink %}
+<nav class="nav-articles d-print-none row justify-content-center">
+    <div class="col-lg-10 col-md-12">
+    <div class="row justify-content-center">
+        {% if prevlink %}
+        <div class="col newer-article text-left">
+            <div><a class="btn btn-outline-secondary" aria-label="Previous" href="{{ prevlink }}">{{ messages("Newer posts") }}</a></div>
+        </div>
+        {% endif %}        
+        <div class="col text-center">
+        </div>
+        {% if nextlink %}
+        <div class="col older-article text-right">
+            <div><a class="btn btn-outline-secondary" aria-label="Next" href="{{ nextlink }}">{{ messages("Older posts") }}</a></div>
+        </div>
+        {% endif %}
+    </div>
+    </div>
+</nav>
+    {% endif %}
+{% endmacro %}
