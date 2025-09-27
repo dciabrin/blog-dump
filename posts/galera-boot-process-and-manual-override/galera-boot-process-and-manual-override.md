@@ -1,7 +1,9 @@
-title: Galera boot process in Open Stack HA and manual override
-tags: galera,openstack
-date: 2015-10-02T18:45:05+0200
-category: Code
+<!--
+.. title: Galera boot process in Open Stack HA and manual override
+.. tags: galera,openstack
+.. date: 2015-10-02T18:45:05+0200
+.. category: Code
+-->
 
 Deployments of OpenStack that rely on MariaDB+Galera benefit from a HA database thanks to Galera's synchronous replication. In such deployments, the Galera cluster is typically managed via Pacemaker, by means of a galera resource agent.
 
@@ -13,7 +15,7 @@ While Galera itself has its own notion of cluster management (membership, health
     
 This document describes the concepts involved in booting a Galera cluster, how the galera resource agent implements the boot process of a galera cluster, and how it can be overriden for recovery scenarios.
 
-<!-- PELICAN_END_SUMMARY -->
+<!-- TEASER_END -->
 
 ## Galera cluster overview
 

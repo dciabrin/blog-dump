@@ -1,7 +1,9 @@
-title: Support for Aluminium Keyboards packaged, code-named apple-kbd
-tags: apple-kbd,apple
-date: 2011-05-19T21:35:00.000+02:00
-category: Code
+<!--
+.. title: Support for Aluminium Keyboards packaged, code-named apple-kbd
+.. tags: apple-kbd,apple
+.. date: 2011-05-19T21:35:00.000+02:00
+.. category: Code
+-->
 
 After many episodes, the support for Apple Aluminium Keyboards is
 finally becoming user-friendly. All major distribs now ship a recent
@@ -13,7 +15,7 @@ To complete the user experience, I'm happy to introduce you
 [`apple-kbd`{#tt1099}](https://github.com/dciabrin/apple-kbd), the
 collection of helpful goodies you need for your Aluminium Keyboard under
 Linux. 
-<!-- PELICAN_END_SUMMARY -->
+<!-- TEASER_END -->
 Here's what you'll get with this package:
 
 

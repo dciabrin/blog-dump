@@ -1,7 +1,9 @@
-title: MikMod library ported to iPhone
-tags: apple-kbd,apple
-date: 2008-06-27T23:18:00.007+02:00
-category: Code
+<!--
+.. title: MikMod library ported to iPhone
+.. tags: apple-kbd,apple
+.. date: 2008-06-27T23:18:00.007+02:00
+.. category: Code
+-->
 
 I've always been a big fan of old skool computer music, like chiptunes
 or demoscene music. Perhaps because they remind me the Good Old Days
@@ -9,6 +11,8 @@ or demoscene music. Perhaps because they remind me the Good Old Days
 the same reason I like [demoscene](http://pouet.net/): real-time
 computer art! Because it's definitely cool, I've decided to port MikMod
 to the iPhone! We'll see later if it might be useful to someone else :)
+
+<!-- TEASER_END -->
 
 ## Compiling libmikmod
 Here are the steps to follow to build libmikmod for your iPhone or iPod Touch. First of all, make sure that

@@ -1,13 +1,15 @@
-title: Connecting to MariaDB with auth_ed25519 and PyMySQL
-subtitle: ed25519-based authentication for the Python MySQL client
-tags: mariadb,crypto,python
-date: 2020-09-21T09:00:00+0200
-lang: en
+<!--
+.. title: Connecting to MariaDB with auth_ed25519 and PyMySQL
+.. subtitle: ed25519-based authentication for the Python MySQL client
+.. tags: mariadb, crypto, python
+.. date: 2020-09-21T09:00:00+0200
+.. lang: en
+.. has_math: True
 header_cover: img/covers/james-sutton-FqaybX9ZiOU-unsplash.jpg
 twitter_card: img/cards/mariadb-auth_ed25519.png
 og:image: img/cards/mariadb-auth_ed25519.png
-category: Code
-
+.. category: Code
+-->
 
 When a MySQL client wants to connect to a MySQL or MariaDB server, the [MySQL wire protocol][mariadb:con]
 specifies how both parties should exchange data, advertise their capabilities, and which authentication method
@@ -16,6 +18,7 @@ scheme that relies on [SHA-1][sha1]. But starting MariaDB 10.1.22, a new cryptog
 mechanism called [`auth_ed25519`][mariadb:auth_25519] can be used for improved security at connection time,
 and PyMySQL recently added support for it.
 
+<!-- TEASER_END -->
 
 ## MySQL server authentication
 
@@ -101,10 +104,9 @@ modulo $l$. With a bit of math reshuffling, you can see that the neat thing abou
 they satisfy the equality from above, and yet all that is needed to verify a signature comes from public
 information only:
 
-
-\begin{alignat}{1} S.B &= (r &+~ (&\text{SHA-512}( R \parallel A \parallel M) \times s)).B \\
- &= r.B &+~ (&\text{SHA-512}( R \parallel A \parallel M) \times s).B \\
- &= r.B &+~ &\text{SHA-512}( R \parallel A \parallel M).s.B \\
+\begin{alignat}{1} S.B &= (r &+~ (&\text{SHA-512}( R \parallel A \parallel M) \times s)).B \\\\
+ &= r.B &+~ (&\text{SHA-512}( R \parallel A \parallel M) \times s).B \\\\
+ &= r.B &+~ &\text{SHA-512}( R \parallel A \parallel M).s.B \\\\
  &= R &+~ &\text{SHA-512}( R \parallel A \parallel M).A
 \end{alignat}
 

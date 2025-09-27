@@ -1,7 +1,9 @@
-title: Apple Aluminium Keyboards with udev, Xorg server 1.9
-tags: apple-kbd,apple
-date: 2011-01-11T22:48:00.004+01:00
-category: Code
+<!--
+.. title: Apple Aluminium Keyboards with udev, Xorg server 1.9
+.. tags: apple-kbd,apple
+.. date: 2011-01-11T22:48:00.004+01:00
+.. category: Code
+-->
 
 It's been a year now since I published my support for Aluminium
 Keyboards. Since then, my XKB patches have been accepted in
@@ -17,7 +19,7 @@ Keyboards. Since then, my XKB patches have been accepted in
     ScrollLock, SysReq and NumLock (options `alupcfkeys`{#tt1103} and
     `alupcnumlock`{#tt1104} in the original patches)
 
-<!-- PELICAN_END_SUMMARY -->
+<!-- TEASER_END -->
 
 Meanwhile, Xorg server 1.9 went stable, becoming more and more
 pervasive. As far as input hotplugging is concerned, this is a major

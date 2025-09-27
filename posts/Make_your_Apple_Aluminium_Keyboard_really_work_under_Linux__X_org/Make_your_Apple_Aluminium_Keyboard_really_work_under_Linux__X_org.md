@@ -1,7 +1,9 @@
-title: Make your Apple Aluminium Keyboard really work under Linux, X.org
-tags: apple-kbd,apple
-date: 2009-05-15T00:16:00.013+02:00
-category: Code
+<!--
+.. title: Make your Apple Aluminium Keyboard really work under Linux, X.org
+.. tags: apple-kbd,apple
+.. date: 2009-05-15T00:16:00.013+02:00
+.. category: Code
+-->
 
 Like many others, I've bought an Aluminium Keyboard for <del>its cool
 style</del> the smooth typing experience it provides. Mine is a wired
@@ -29,7 +31,7 @@ need those ones too:
 -   Keeping the multimedia keys accessible when the fn key is remapped
     to Insert
 
-<!-- PELICAN_END_SUMMARY -->
+<!-- TEASER_END -->
 
 Prerequisite
 ------------

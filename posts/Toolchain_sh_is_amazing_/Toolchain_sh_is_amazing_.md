@@ -1,7 +1,9 @@
-title: Toolchain.sh is amazing!
-tags: iphone,apple
-date: 2009-02-23T21:53:00.003+01:00
-category: Code
+<!--
+.. title: Toolchain.sh is amazing!
+.. tags: iphone,apple
+.. date: 2009-02-23T21:53:00.003+01:00
+.. category: Code
+-->
 
 A few weeks ago, I finally upgraded my iPhone to firwmare 2.2.1. It was
 actually an utterly painless operation, thanks to the amazing
@@ -9,7 +11,7 @@ actually an utterly painless operation, thanks to the amazing
 by the guys from
 [iphonedevlinux](http://code.google.com/p/iphonedevonlinux/).
 
-<!-- PELICAN_END_SUMMARY -->
+<!-- TEASER_END -->
 
 I remember in the 1.1.4 days, I had a hard time extracting the MacOS
 10.5 SDK on Linux and compiling the openSDK on my Core2 Quad by

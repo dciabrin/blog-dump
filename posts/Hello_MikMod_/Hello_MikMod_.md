@@ -1,7 +1,9 @@
-title: Hello MikMod!
-tags: apple-kbd,apple
-date: 2008-07-05T00:27:00.003+02:00
-category: Code
+<!--
+.. title: Hello MikMod!
+.. tags: apple-kbd,apple
+.. date: 2008-07-05T00:27:00.003+02:00
+.. category: Code
+-->
 
 As promised earlier, I've packaged an obligatory example of how to use
 the iPhone port of [libmikmod](http://mikmod.raphnet.net/) which I've
@@ -19,7 +21,7 @@ which implements a very simple "Hello World!":
     control mikmod output. For instance, how to react to volume change
     events when iPhone buttons are pressed.
 
-<!-- PELICAN_END_SUMMARY -->
+<!-- TEASER_END -->
 
 What to do with this archive once you've extracted it?
 

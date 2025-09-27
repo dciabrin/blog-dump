@@ -1,7 +1,9 @@
-title: Troubleshooting open_files_limit in MariaDB
-tags: mariadb,galera
-date: 2016-03-22T15:01:05+0100
-category: Code
+<!--
+.. title: Troubleshooting open_files_limit in MariaDB
+.. tags: mariadb,galera
+.. date: 2016-03-22T15:01:05+0100
+.. category: Code
+-->
 
 It may happen in the MariaDB logs that you see failures to set `open_files_limit`:
 
@@ -15,7 +17,7 @@ Meaning MariaDB was unable to raise the limit of maximum file descriptors at sta
     ::text
     open_files_limit=-1
 
-<!-- PELICAN_END_SUMMARY -->
+<!-- TEASER_END -->
 
 
 ## How MariaDB processes option open_files_limit

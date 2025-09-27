@@ -1,6 +1,8 @@
-title: Hello World!
-date: 2008-06-19T21:44:00.005+02:00
-category: Misc
+<!--
+.. title: Hello World!
+.. date: 2008-06-19T21:44:00.005+02:00
+.. category: Misc
+-->
 
 I'm opening this blog to share my bits of code, hacks or thoughts I have
 during the time I spend in front of my computer. That will be a great

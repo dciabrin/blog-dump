@@ -1,7 +1,9 @@
-title: Aluminium Keyboard support under X11: all models, all OSes
-tags: apple-kbd,apple
-date: 2009-12-22T22:03:00.008+01:00
-category: Code
+<!--
+.. title: Aluminium Keyboard support under X11: all models, all OSes
+.. tags: apple-kbd,apple
+.. date: 2009-12-22T22:03:00.008+01:00
+.. category: Code
+-->
 
 I finally found the time to update my previous support for Aluminium
 Keyboard under Xorg, and take it to the Next Level (tm). The overall
@@ -29,7 +31,7 @@ support is now much more polished. For you this means several things:
     configured your system to default to Dvorak layout, the support will
     use it automatically!
 
-<!-- PELICAN_END_SUMMARY -->
+<!-- TEASER_END -->
 
 Installing the new support
 --------------------------
