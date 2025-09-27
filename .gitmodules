@@ -1,9 +1,7 @@
-[submodule "plugins"]
-	path = plugins
-	url = https://github.com/getpelican/pelican-plugins.git
 [submodule "output"]
 	path = output
 	url = https://github.com/dciabrin/dciabrin.github.io.git
-[submodule "mytheme/vendor/bootstrap"]
-	path = mytheme/vendor/bootstrap
-	url = https://github.com/twbs/bootstrap.git
+[submodule "bootstrap"]
+	path = themes/responsive4/sass/vendor/bootstrap
+	url = https://github.com/twbs/bootstrap
+	branch = v4-dev
