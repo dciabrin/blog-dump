@@ -60,21 +60,6 @@
 {{ helper.html_pager(post) }}
 {% endblock %}
 
-{% block content_footer %}
-    {% if content_footer %}
-        <footer id="footer" class="d-print-none">
-          <div class="container-fluid">
-            <div class="row justify-content-center">
-               <div class="col-lg-10 col-md-12">
-                 <p class="text-center copyright text-muted">{{ content_footer }}</p>
-                 {{ template_hooks['page_footer']() }}
-              </div>
-            </div>
-          </div>
-        </footer>
-    {% endif %}
-{% endblock %}
-
 {% block sourcelink %}
 {% if show_sourcelink %}
     {{ ui.show_sourcelink(post.source_link()) }}

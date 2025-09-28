@@ -160,18 +160,3 @@
     </div>
 {% endif %}
 {% endblock %}
-
-{% block content_footer %}
-    {% if content_footer %}
-        <footer id="footer">
-          <div class="container-fluid">
-            <div class="row justify-content-center">
-               <div class="col-lg-10 col-md-12">
-                 <p class="text-center copyright text-muted">{{ content_footer }}</p>
-                 {{ template_hooks['page_footer']() }}
-              </div>
-            </div>
-          </div>
-        </footer>
-    {% endif %}
-{% endblock %}
